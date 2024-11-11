@@ -12,4 +12,25 @@ function calculateEngines() {
 
     document.getElementById('result').innerText =
         `Для подъема корабля весом ${shipWeight} кг потребуется ${engineCount} ${engineCount === 1 ? 'двигатель' : 'двигателя'}.`;
+    document.getElementById('result').classList.add('animate__pulse');
 }
+
+function updateEngineInfo() {
+    const engineSelect = document.getElementById('engineType');
+    const selectedOption = engineSelect.options[engineSelect.selectedIndex];
+
+    const engineName = selectedOption.getAttribute('data-name');
+    const engineCraft = selectedOption.getAttribute('data-craft');
+    const engineThrust = selectedOption.value;
+
+    if (engineName && engineCraft) {
+        document.getElementById('engineInfo').innerHTML =
+            `<strong>${engineName}</strong><br>Подъемность: ${engineThrust} кН<br>Крафт: ${engineCraft}`;
+    } else {
+        document.getElementById('engineInfo').innerHTML = '';
+    }
+}
+
+fetch('header.html')
+    .then(response => response.text())
+    .then(data => document.getElementById('header').innerHTML = data);

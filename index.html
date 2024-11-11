@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Space Engineers: Расчет двигателей</title>
-    <!-- Подключаем Bootstrap 5 и анимации -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -12,23 +11,19 @@
 <!-- Верхняя шапка сайта -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <!-- Логотип или название сайта -->
         <a class="navbar-brand" href="index.html">EngineCalc</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-        <!-- Навигационные ссылки -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="tutorial.html">Гайды</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">О нас</a></li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Главная</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="about.html">О нас</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Контакты</a>
+                    <a class="nav-link" href="https://steamcommunity.com/id/iluksgt/" target="_blank">
+                        <i class="bi bi-steam"></i> Steam
+                    </a>
                 </li>
             </ul>
         </div>
@@ -46,11 +41,11 @@
 
         <div class="col-md-6">
             <label for="engineType" class="form-label">Выберите тип двигателя</label>
-            <select class="form-select" id="engineType" required>
+            <select class="form-select" id="engineType" onchange="updateEngineInfo()" required>
                 <option value="" selected>Выберите...</option>
-                <option value="84">Малый двигатель (84 кН)</option>
-                <option value="408">Средний двигатель (408 кН)</option>
-                <option value="3400">Большой двигатель (3400 кН)</option>
+                <option value="84" data-name="Малый атмосферный двигатель" data-craft="1 металл, 2 платы">Малый двигатель (84 кН)</option>
+                <option value="408" data-name="Средний атмосферный двигатель" data-craft="5 металлов, 4 платы">Средний двигатель (408 кН)</option>
+                <option value="3400" data-name="Большой атмосферный двигатель" data-craft="10 металлов, 8 плат">Большой двигатель (3400 кН)</option>
             </select>
         </div>
 
@@ -59,12 +54,16 @@
         </div>
 
         <div class="col-12 mt-4">
-            <h3 id="result" class="text-center animate__animated animate__fadeInUp"></h3>
+            <h3 id="result" class="text-center animate__animated"></h3>
+        </div>
+
+        <div class="col-12 mt-4">
+            <h4>Информация о двигателе</h4>
+            <p id="engineInfo" class="animate__animated animate__fadeIn"></p>
         </div>
     </form>
 </div>
 
-<!-- JavaScript для Bootstrap 5 и основной скрипт -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="scripts.js"></script>
 </body>
