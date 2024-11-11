@@ -1,0 +1,10 @@
+/* Подключение анимаций Animate.css */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
+
+/* Дополнительные стили */
+body {
+    background-color: #f8f9fa;
+}
+.container h1, .container form, .container h3 {
+    animation-duration: 1s;
+}
