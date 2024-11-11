@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Engineers: Расчет двигателей</title>
+    <!-- Подключаем Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<!-- Верхняя шапка сайта -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <!-- Логотип или название сайта -->
+        <a class="navbar-brand" href="#">EngineCalc</a>
+
+        <!-- Кнопка для разворачивания навигации на мобильных устройствах -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Навигационные ссылки -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Домой</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Основное содержимое страницы -->
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Расчет необходимого количества двигателей</h1>
+
+    <!-- Форма для расчета -->
+    <form id="calcForm" class="row g-3">
+        <div class="col-md-6">
+            <label for="shipWeight" class="form-label">Вес корабля (в кг)</label>
+            <input type="number" class="form-control" id="shipWeight" placeholder="Введите вес корабля" required>
+        </div>
+
+        <div class="col-md-6">
+            <label for="engineType" class="form-label">Выберите тип двигателя</label>
+            <select class="form-select" id="engineType" required>
+                <option value="" selected>Выберите...</option>
+                <option value="84">Малый двигатель (84 кН)</option>
+                <option value="408">Средний двигатель (408 кН)</option>
+                <option value="3400">Большой двигатель (3400 кН)</option>
+            </select>
+        </div>
+
+        <div class="col-12">
+            <button type="button" onclick="calculateEngines()" class="btn btn-primary">Рассчитать</button>
+        </div>
+
+        <!-- Блок для вывода результата -->
+        <div class="col-12 mt-4">
+            <h3 id="result" class="text-center"></h3>
+        </div>
+    </form>
+</div>
+
+<!-- JavaScript для Bootstrap 5 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- JavaScript для расчета двигателей -->
+<script>
+    function calculateEngines() {
+        const shipWeight = parseFloat(document.getElementById('shipWeight').value);
+        const engineThrust = parseFloat(document.getElementById('engineType').value);
+
+        if (isNaN(shipWeight) || isNaN(engineThrust) || shipWeight <= 0) {
+            document.getElementById('result').innerText = 'Пожалуйста, введите корректный вес и выберите тип двигателя.';
+            return;
+        }
+
+        const requiredThrust = shipWeight * 9.81;
+        const engineCount = Math.ceil(requiredThrust / engineThrust);
+
+        document.getElementById('result').innerText =
+            `Для подъема корабля весом ${shipWeight} кг потребуется ${engineCount} ${engineCount === 1 ? 'двигатель' : 'двигателя'}.`;
+    }
+</script>
+</body>
+</html>
