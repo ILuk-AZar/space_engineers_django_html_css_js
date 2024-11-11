@@ -1,12 +1,12 @@
 <h1 align="center" id="title">Space Engineers Engine Count</h1>
 
-<h2>🚀 Demo</h2>
+<h2>🚀 Демонстрация</h2>
 
-[http://se-engines.ru](http://se-engines.ru)
+[Сам сайт](http://se-engines.ru)
 
   
   
-<h2>🧐 Features</h2>
+<h2>🧐 Фичи</h2>
 
 Here're some of the project's best features:
 
