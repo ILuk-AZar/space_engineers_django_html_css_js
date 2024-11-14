@@ -16,17 +16,17 @@ body {
     border-radius: 8px;
 }
 
-button, .btn-primary {
-    background-color: rgba(58, 80, 107, 0.12); /* Цвет кнопок */
+button, .btn-outline-primary { /* Цвет кнопок */
     color: #ffffff;
-    border: none;
+    border-color: #5bc0be;
     border-radius: 4px;
     transition: 0.3s;
 }
 
-button:hover, .btn-primary:hover {
-    background-color: #5bc0be; /* Подсветка при наведении */
+button:hover, .btn-outline-primary:hover {
+    background-color: rgba(91, 192, 190, 0.6); /* Подсветка при наведении */
     color: #ffffff;
+    border-color: #5bc0be;
 }
 
 .card {
