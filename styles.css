@@ -1,10 +1,76 @@
 /* Подключение анимаций Animate.css */
 @import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
 
-/* Дополнительные стили */
 body {
-    background-color: #f8f9fa;
+    background-image: url('images/background.png'); /* Путь к вашему PNG-фону */
+    background-size: cover;
+    background-attachment: fixed;
+    color: white; /* Цвет текста по умолчанию */
 }
-.container h1, .container form, .container h3 {
-    animation-duration: 1s;
+
+/* Фон основного контейнера с содержанием */
+.content-background {
+    background-color: #1b1e23; /* Основной цвет */
+    opacity: 0.9; /* Полупрозрачный эффект */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+button, .btn-primary {
+    background-color: #3a506b; /* Цвет кнопок */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+button:hover, .btn-primary:hover {
+    background-color: #5bc0be; /* Подсветка при наведении */
+    color: #ffffff;
+}
+
+.card {
+    background-color: #2c3e50;
+    border: none;
+    color: #ecf0f1;
+    opacity: 1;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-body p, .card-body h5 {
+    color: #ecf0f1;
+}
+
+h1, h2, h3 {
+    color: #5bc0be;
+}
+
+/* Стиль для выпадающего списка */
+.navbar-nav .nav-link {
+    color: #ecf0f1;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #5bc0be;
+}
+
+/* Добавьте стили для шахматного расположения и анимаций */
+.engine-info {
+    display: flex;
+    align-items: stretch;
+}
+/* Шахматное расположение */
+.engine-info-left .card {
+    flex-direction: row;
+}
+.engine-info-right .card {
+    flex-direction: row-reverse;
+}
+.card-img-top {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }

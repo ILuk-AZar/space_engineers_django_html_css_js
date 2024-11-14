@@ -8,43 +8,37 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<!-- Верхняя шапка сайта -->
+<!-- Контейнер для шапки -->
 <div id="header"></div>
+
 <!-- Основное содержимое страницы -->
-<div class="container mt-5">
-    <h1 class="text-center mb-4 animate__animated animate__fadeInDown">Расчет необходимого количества двигателей</h1>
-    <form id="calcForm" class="row g-3 animate__animated animate__zoomIn">
-        <div class="col-md-6">
-            <label for="shipWeight" class="form-label">Вес корабля (в кг)</label>
-            <input type="number" class="form-control" id="shipWeight" placeholder="Введите вес корабля" required>
+<div class="container mt-5 content-background">
+    <h1 class="text-center mb-4">Расчет необходимого количества двигателей</h1>
+    <form id="engineCalculatorForm">
+        <div class="mb-3">
+            <label for="weight" class="form-label">Введите вес корабля (кг):</label>
+            <input type="number" id="weight" class="form-control" placeholder="Пример: 5000" required>
         </div>
-
-        <div class="col-md-6">
-            <label for="engineType" class="form-label">Выберите тип двигателя</label>
-            <select class="form-select" id="engineType" onchange="updateEngineInfo()" required>
-                <option value="" selected>Выберите...</option>
-                <option value="84" data-name="Малый атмосферный двигатель" data-craft="1 металл, 2 платы">Малый двигатель (84 кН)</option>
-                <option value="408" data-name="Средний атмосферный двигатель" data-craft="5 металлов, 4 платы">Средний двигатель (408 кН)</option>
-                <option value="3400" data-name="Большой атмосферный двигатель" data-craft="10 металлов, 8 плат">Большой двигатель (3400 кН)</option>
-            </select>
-        </div>
-
-        <div class="col-12">
-            <button type="button" onclick="calculateEngines()" class="btn btn-primary animate__animated animate__pulse">Рассчитать</button>
-        </div>
-
-        <div class="col-12 mt-4">
-            <h3 id="result" class="text-center animate__animated"></h3>
-        </div>
-
-        <div class="col-12 mt-4">
-            <h4>Информация о двигателе</h4>
-            <p id="engineInfo" class="animate__animated animate__fadeIn"></p>
-        </div>
+        <button type="button" class="btn btn-primary" onclick="calculateEngines()">Рассчитать</button>
     </form>
+
+    <div id="calculationResults" class="mt-5"></div>
+
+    <!-- Секция для информации о двигателях -->
+    <h2 class="text-center mt-5">Информация о двигателях</h2>
+    <div id="enginesInfo" class="row mt-4 content-engines"></div>
 </div>
 
+<!-- Подключение Bootstrap и JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="scripts.js"></script>
+<script src="script.js"></script>
+
+<!-- Загрузка шапки -->
+<script>
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('header').innerHTML = data)
+        .catch(error => console.error('Ошибка загрузки шапки:', error));
+</script>
 </body>
 </html>

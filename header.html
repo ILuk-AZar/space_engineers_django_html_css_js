@@ -1,6 +1,6 @@
 <!-- header.html -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
+  <div class="container">
     <a class="navbar-brand" href="index.html">EngineCalc</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -8,11 +8,18 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
-        <li class="nav-item"><a class="nav-link" href="tutorial.html">Гайды</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="guidesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Гайды</a>
+          <ul class="dropdown-menu" aria-labelledby="guidesDropdown">
+            <li><a class="dropdown-item" href="tutorial.html">Основные советы</a></li>
+            <li><a class="dropdown-item" href="tutorial.html#atmospheric-engines">Атмосферные двигатели</a></li>
+            <li><a class="dropdown-item" href="tutorial.html#space-engines">Космические двигатели</a></li>
+          </ul>
+        </li>
         <li class="nav-item"><a class="nav-link" href="about.html">О нас</a></li>
         <li class="nav-item">
           <a class="nav-link" href="https://steamcommunity.com/id/iluksgt/" target="_blank">
-            <img src="images/steam.png" alt="Steam" width="30" height="30">
+            <img src="images/steam.png" alt="Steam" width="20" height="20">
           </a>
         </li>
       </ul>
