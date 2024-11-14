@@ -17,7 +17,7 @@ body {
 }
 
 button, .btn-primary {
-    background-color: #3a506b; /* Цвет кнопок */
+    background-color: rgba(58, 80, 107, 0.12); /* Цвет кнопок */
     color: #ffffff;
     border: none;
     border-radius: 4px;
