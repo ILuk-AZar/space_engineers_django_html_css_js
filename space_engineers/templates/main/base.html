@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Space Engineers{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+<header>
+    <!-- Общая шапка -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'homepage' %}">Главная</a>
+        <a class="navbar-brand" href="{% url 'guide' %}">Гайды</a>
+        <a class="navbar-brand" href="{% url 'about' %}">О нас</a>
+        <a href="https://steamcommunity.com/id/iluksgt/" target="_blank">
+            <img src="{% static 'images/steam.png' %}" alt="Steam" width="20">
+        </a>
+    </nav>
+</header>
+<main>
+    {% block content %}{% endblock %}
+</main>
+<footer>
+    <!-- Подвал сайта -->
+</footer>
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

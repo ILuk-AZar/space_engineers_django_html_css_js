@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Расчет необходимого количества двигателей</h1>
+    <form id="engineCalculatorForm">
+        <div class="mb-3">
+            <label for="weight" class="form-label">Введите вес корабля (кг):</label>
+            <input type="number" id="weight" class="form-control" placeholder="Пример: 5000" required>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="calculateEngines()">Рассчитать</button>
+    </form>
+
+    <div id="calculationResults" class="mt-5"></div>
+
+    <h2 class="text-center mt-5">Информация о двигателях</h2>
+    <div id="enginesInfo" class="row">
+        <!-- Здесь будет динамически появляться информация о двигателях -->
+    </div>
+</div>
+{% endblock %}
